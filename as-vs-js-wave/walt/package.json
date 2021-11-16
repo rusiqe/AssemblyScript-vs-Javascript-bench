@@ -1,0 +1,16 @@
+{
+  "name": "walt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build.js",
+  "scripts": {
+    "build": "node $NODE_DEBUG_OPTION ./build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "walt-compiler": "^0.21.0"
+  }
+}

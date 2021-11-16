@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>Wave Equation</title>
+        <link rel="stylesheet" href="./index.css">
+        <script type="text/javascript" src="js/js-algorithm.js"></script>
+        <script type="text/javascript" src="js/wasm-algorithm.js"></script>
+        <script type="text/javascript" src="wave.js"></script>
+    </head>
+    <body>
+    <div class="container">
+        <div>
+            <p class="bigger">JAVASCRIPT VS. WEBASSEMBLY</p>
+            <p class="big">PERFORMANCE COMPARISON</p>
+            <div class="buttons">
+                <a href="#" id="noiseBtn" class="btn">NOISE</a>
+                <a href="#" id="clearBtn" class="btn">CLEAR</a>
+            </div>
+            <div class="boxes">
+                <div class="radio">
+                    <input type="radio" id="js-box" name="algorithm" checked />
+                    <label for="js-box">JAVASCRIPT</label>
+                    <input type="radio" id="emscripten-box" name="algorithm" class="ems" />
+                    <label for="emscripten-box" class="ems">EMSCRIPTEN</label>
+                    <input type="radio" id="clang-box" name="algorithm" />
+                    <label for="clang-box">CLANG</label>
+                    <input type="radio" id="walt-box" name="algorithm" />
+                    <label for="walt-box">WALT</label>
+                    <input type="radio" id="assembly-box" name="algorithm" />
+                    <label for="assembly-box">ASSEMBLYSCRIPT</label>
+                </div>
+                <label for="stepsBtn">Passes</label>
+                <input id="stepsBtn" class="stepper" type="number" value="1" min="1" max="12"/>
+                <div id="sorry" class="lame" style="display:none">
+                    NO WEBASSEMBLY SUPPORT.
+                </div>
+            </div>
+            <div><span class="bigger">FRAME RATE</span></div>
+            <div><span id="fps" class="huge">0</span></div>
+            <div><span class="big">FPS</span></div>
+            <p class="description">
+                This is a simulation of the <a href="https://en.wikipedia.org/wiki/Wave_equation">wave equation</a>
+                <span class="eq">&#8706;<sup>2</sup>u/&#8706;t<sup>2</sup> = c<sup>2</sup>(&#8706;<sup>2</sup>u/&#8706;x<sup>2</sup>+&#8706;<sup>2</sup>u/&#8706;y<sup>2</sup>)</span>
+                across a circular 2D manifold. Use the mouse to create waves.
+            </p>
+            <p class="description">
+                This compares a standard Javascript implementation against several different WebAssembly modules:
+                <ul>
+                    <li class="ems">C code compiled by Emscripten</li>
+                    <li>C code compiled by WebAssembly Studio (Clang / Binaryen)</li>
+                    <li>TypeScript-like code compiled by <a href="http://assemblyscript.org">AssemblyScript</a>, with and without optimization</li>
+                    <li>JS-like code compiled by <a href="https://github.com/ballercat/walt">Walt</a></li>
+                </ul>
+            </p>
+            <p class="description"><a href="https://github.com/jtiscione/webassembly-wave">Github repository</a></p>
+        </div>
+        <div>
+            <canvas id="canvas" width="512" height="512"></canvas>
+        </div>
+    </div>
+    </body>
+</html>
